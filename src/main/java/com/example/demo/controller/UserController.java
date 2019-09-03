@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/users")
 public class UserController {
 	@GetMapping()
-	public String getUsers(@RequestParam(name = "page", defaultValue = "1") String page,
-			@RequestParam(name = "limit", defaultValue = "20") String limit) {
+	public String getUsers(@RequestParam(value = "page", defaultValue = "1") String page,
+			@RequestParam(value = "limit", defaultValue = "20") String limit) {
 		return "get users with page = " + page + " limit = " + limit;
 	}
 
