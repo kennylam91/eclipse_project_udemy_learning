@@ -6,14 +6,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
-	@GetMapping
-	public String getUsers() {
-		return "get users";
+	@GetMapping()
+	public String getUsers(@RequestParam(name = "page", defaultValue = "1") String page,
+			@RequestParam(name = "limit", defaultValue = "20") String limit) {
+		return "get users with page = " + page + " limit = " + limit;
 	}
 
 	@GetMapping(path = "/{userId}")
